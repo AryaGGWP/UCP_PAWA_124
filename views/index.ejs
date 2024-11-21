@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sistem Pengelolaan Kolam Renang</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Beranda</a></li>
+                    <li><a href="/pools">Daftar Kolam Renang</a></li>
+                    <li><a href="/pools/create">Tambah Kolam Renang</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="intro">
+            <div class="container">
+                <h2>Temukan Kolam Renang Impian Anda!</h2>
+                <p>Gunakan sistem kami untuk mengelola data kolam renang dengan mudah. Tambah, cari, dan kelola kolam renang yang ada hanya dalam beberapa klik.</p>
+            </div>
+        </section>
+
+        <section class="search">
+            <div class="container">
+                <h3>Cari Kolam Renang</h3>
+                <form action="/pools" method="GET">
+                    <input type="text" id="search" name="search" placeholder="Masukkan nama kolam renang..." required>
+                    <button type="submit">Cari</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="info">
+            <div class="container">
+                <p>Klik menu di atas untuk menambahkan kolam renang baru atau melihat daftar kolam renang yang ada. Dengan sistem ini, Anda bisa mengatur kolam renang dengan praktis dan efisien!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sistem Pengelolaan Kolam Renang. Semua hak dilindungi undang-undang.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

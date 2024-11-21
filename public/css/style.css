@@ -1,0 +1,138 @@
+/* Reset default browser styles */
+body, h1, h2, h3, p, a, form, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Umum untuk seluruh body */
+body {
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background: #00b4d8;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #f1faee;
+}
+
+/* Main content */
+.main-content {
+    padding: 40px 0;
+}
+
+.intro, .search, .info {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.search input {
+    width: calc(100% - 80px);
+    padding: 10px;
+    border: 2px solid #00b4d8;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.search button {
+    padding: 10px 20px;
+    background: #00b4d8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search button:hover {
+    background: #0096c7;
+}
+
+.info p {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: #003366;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .search form {
+        flex-direction: column;
+    }
+
+    .search input, .search button {
+        width: 100%;
+    }
+}
+
+/* Loading indicator */
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    z-index: 1000;
+}
+
