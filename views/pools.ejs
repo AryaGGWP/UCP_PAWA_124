@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pools Management</title>
+  <title><%= title %></title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <h1>Pools Management</h1>
-  <form action="/" method="POST">
-    <input type="text" name="nama" placeholder="Pool Name" required>
-    <input type="number" step="0.01" name="harga" placeholder="Price" required>
+
+  <!-- Form untuk menambahkan Pool -->
+  <h2>Create New Pool</h2>
+  <form action="/pools/create" method="POST">
+    <input type="text" name="name" placeholder="Pool Name" required>
+    <input type="number" step="0.01" name="price" placeholder="Price" required>
     <button type="submit">Add Pool</button>
   </form>
 
+  <!-- Tabel untuk menampilkan daftar pool -->
+  <h2>All Pools</h2>
   <table>
     <thead>
       <tr>
@@ -23,20 +28,26 @@
       </tr>
     </thead>
     <tbody>
-      <% pools.forEach(pool => { %>
-      <tr>
-        <td><%= pool.nama %></td>
-        <td><%= pool.harga %></td>
-        <td>
-          <form action="/update/<%= pool.id %>" method="POST">
-            <button type="submit">Update</button>
-          </form>
-          <form action="/delete/<%= pool.id %>" method="POST">
-            <button type="submit">Delete</button>
-          </form>
-        </td>
-      </tr>
-      <% }); %>
+      <% if (pools.length > 0) { %>
+        <% pools.forEach(pool => { %>
+        <tr>
+          <td><%= pool.name %></td>
+          <td><%= pool.price %></td>
+          <td>
+            <form action="/pools/update/<%= pool.id %>" method="GET">
+              <button type="submit">Update</button>
+            </form>
+            <form action="/pools/delete/<%= pool.id %>" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+      <% } else { %>
+        <tr>
+          <td colspan="3">No pools found.</td>
+        </tr>
+      <% } %>
     </tbody>
   </table>
 </body>

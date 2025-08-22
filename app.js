@@ -2,20 +2,17 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const poolRoutes = require('./routes/poolRoutes'); // Routes untuk CRUD kolam renang
-const db = require('./database/db'); // Koneksi database
+const db = require('./database/db'); 
 
 const app = express();
 
-// Middleware
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // Untuk menangani data form
+app.use(express.json()); // Untuk menangani data JSON
 
-// View Engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-// Static Files
 app.use(express.static('public'));
 
 // Test Database Connection
@@ -27,14 +24,16 @@ db.connect((err) => {
   console.log('Connected to MySQL database');
 });
 
-app.use('/pools', poolRoutes); // CRUD routes untuk pools
+// Routes
+app.use('/pools', poolRoutes); // Semua endpoint untuk kolam renang ada di bawah /pools
 
+// Root Endpoint
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Welcome to Pool Management System' });
+  res.redirect('/pools'); // Redirect ke halaman utama pools
 });
 
 // Server Listening
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030; // Gunakan port dari .env atau default 3030
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

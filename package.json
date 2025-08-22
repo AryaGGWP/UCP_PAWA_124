@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +18,9 @@
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "express-session": "^1.18.1",
+    "express-static": "^1.2.6",
     "express-validator": "^7.2.0",
+    "middleware": "^1.0.0",
     "mongoose": "^8.8.2",
     "mysql2": "^3.11.4"
   },

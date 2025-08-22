@@ -3,7 +3,7 @@ const db = require('../database/db');
 // Get All Pools
 exports.getAllPools = () => {
   return new Promise((resolve, reject) => {
-    const sql = 'SELECT * FROM pools';
+    const sql = 'SELECT * FROM datakolamrenang';
     db.query(sql, (err, results) => {
       if (err) {
         return reject(err);
@@ -16,9 +16,9 @@ exports.getAllPools = () => {
 // Create a New Pool
 exports.createPool = (poolData) => {
   return new Promise((resolve, reject) => {
-    const sql = 'INSERT INTO pools (nama, harga) VALUES (?, ?)';
-    const { nama, harga } = poolData;
-    db.query(sql, [nama, harga], (err, result) => {
+    const sql = 'INSERT INTO datakolamrenang (name, price) VALUES (?, ?)';
+    const { name, price } = poolData;
+    db.query(sql, [name, price], (err, result) => {
       if (err) {
         return reject(err);
       }
@@ -30,9 +30,9 @@ exports.createPool = (poolData) => {
 // Update a Pool by ID
 exports.updatePool = (id, poolData) => {
   return new Promise((resolve, reject) => {
-    const sql = 'UPDATE pools SET nama = ?, harga = ? WHERE id = ?';
-    const { nama, harga } = poolData;
-    db.query(sql, [nama, harga, id], (err, result) => {
+    const sql = 'UPDATE datakolamrenang SET name = ?, price = ? WHERE id = ?';
+    const { name, price } = poolData;
+    db.query(sql, [name, price, id], (err, result) => {
       if (err) {
         return reject(err);
       }
@@ -44,7 +44,7 @@ exports.updatePool = (id, poolData) => {
 // Delete a Pool by ID
 exports.deletePool = (id) => {
   return new Promise((resolve, reject) => {
-    const sql = 'DELETE FROM pools WHERE id = ?';
+    const sql = 'DELETE FROM datakoamrenang WHERE id = ?';
     db.query(sql, [id], (err, result) => {
       if (err) {
         return reject(err);
